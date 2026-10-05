@@ -2,8 +2,8 @@
 using namespace std;
 
 int main() {
-    cout << "Git Lab 1 - SSS2026 - Alessandro Quagliaroli / Edoardo Dell'Eva" << endl;
-    cout << " 2Versione iniziale " << endl;
+    cout << "Git Lab 1 - SSS2026 Alessandro Quagliaroli / Edoardo Dell'Eva" << endl;
+    cout << "Modifica fatta nel branch rametto" << endl;
 
     return 0;
 }
