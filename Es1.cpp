@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
     cout << "Git Lab 1 - SSS2026 - Alessandro Quagliaroli / Edoardo Dell'Eva" << endl;
-    cout << " Versione iniziale " << endl;
+    cout << " 2Versione iniziale " << endl;
 
     return 0;
 }
