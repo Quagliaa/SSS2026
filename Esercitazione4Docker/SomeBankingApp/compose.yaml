@@ -1,0 +1,39 @@
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - ./backend/bank.db:/app/backend/bank.db
+    networks:
+      - banking-net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:4200:80"
+    depends_on:
+      - backend
+    networks:
+      - banking-net
+
+  proxy:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:8080:80"
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - banking-net
+
+networks:
+  banking-net:
+    driver: bridge

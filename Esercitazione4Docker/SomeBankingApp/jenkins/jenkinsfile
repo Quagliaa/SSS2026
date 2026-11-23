@@ -1,0 +1,23 @@
+pipeline {
+    agent any //nel senso che posso usare qualsiasi agente per far partire questa pipline.
+
+    stages {
+        stage('Checkout') { //serve per prendere il codice sorgente dal repository
+            steps {
+                checkout scm //qua faccio il checkout di smc che é una variable che contiene il repository
+            }
+        }
+
+        stage('Build Backend') { //building del backend, quindi dockerizzo il codice del backend.
+            steps {
+                sh 'docker build -t banking-backend:latest ./backend' //build effettiva.
+            }
+        }
+
+        stage('Build Frontend') { //building del frontend, quindi dockerizzo il codice del frontend.
+            steps {
+                sh 'docker build -t banking-frontend:latest ./frontend' //build effettiva.
+            }
+        }
+    }
+}

@@ -1,0 +1,67 @@
+### 1. Clonare il fork
+
+
+git clone <URL-del-tuo-fork>
+cd <nome-repository>
+
+
+### 2. Collegare il repository originale
+
+
+git remote add upstream <URL-repository-originale>
+
+
+### 3. Creare un branch
+
+
+git switch -c nome-feature
+
+
+### 4. Modificare i file e creare un commit
+
+
+git add .
+git commit -m "feat: descrizione modifica"
+
+
+### 5. Caricare il branch su GitHub
+
+
+git push -u origin nome-feature
+
+
+### 6. Creare una Pull Request
+
+
+gh pr create --base main --head nome-feature
+
+
+Richiede GitHub CLI (`gh`) installata e autenticata. In alternativa, apri la PR dal sito GitHub.
+
+### 7. Eventuali correzioni dopo la code review
+
+
+git add .
+git commit -m "fix: correzioni richieste"
+git push
+
+
+### 8. Merge della Pull Request (dopo approvazione)
+
+
+gh pr merge --merge
+
+
+### 9. Aggiornare il repository locale
+
+
+git switch main
+git fetch upstream
+git merge upstream/main
+
+
+### 10. Eliminare il branch utilizzato
+
+
+git branch -d nome-feature
+git push origin --delete nome-feature
