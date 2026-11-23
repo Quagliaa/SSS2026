@@ -10,13 +10,13 @@ pipeline {
 
         stage('Build Backend') { //building del backend, quindi dockerizzo il codice del backend.
             steps {
-                sh 'docker build -t banking-backend:latest ./backend' //build effettiva.
+                sh 'docker build -t banking-backend:latest ./Esercitazione4Docker/SomeBankingApp/backend' //build effettiva.
             }
         }
 
         stage('Build Frontend') { //building del frontend, quindi dockerizzo il codice del frontend.
             steps {
-                sh 'docker build -t banking-frontend:latest ./frontend' //build effettiva.
+                sh 'docker build -t banking-frontend:latest ./Esercitazione4Docker/SomeBankingApp/frontend' //build effettiva.
             }
         }
     }
